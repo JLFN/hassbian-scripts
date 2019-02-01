@@ -97,7 +97,22 @@ sudo systemctl start socat-vusb
  
 # View the log of socat-vusb
 sudo journalctl -u socat-vusb.service -f
- 
+
+# Output should look like:
+pi@hassbian:~ $ systemctl status socat-vusb.service
+● socat-vusb.service - socat-vusb
+   Loaded: loaded (/etc/systemd/system/socat-vusb.service; enabled; vendor preset: enabled)
+   Active: active (running) since Fri 2019-02-01 15:35:24 UTC; 4min 11s ago
+ Main PID: 1406 (socat)
+   CGroup: /system.slice/socat-vusb.service
+           └─1406 /usr/bin/socat -d -d pty,raw,b115200,echo=0,link=/opt/zigbee2mqttdev/vusb/zigbee_cc2530 tcp:127.0.0.1:1775,reuseaddr
+
+Feb 01 15:35:24 hassbian systemd[1]: Started socat-vusb.
+Feb 01 15:35:24 hassbian socat[1406]: 2019/02/01 15:35:24 socat[1406] N PTY is /dev/pts/3
+Feb 01 15:35:24 hassbian socat[1406]: 2019/02/01 15:35:24 socat[1406] N opening connection to AF=2 127.0.0.1:1775
+Feb 01 15:35:24 hassbian socat[1406]: 2019/02/01 15:35:24 socat[1406] N successfully connected from local address AF=2 127.0.0.1:47512
+Feb 01 15:35:24 hassbian socat[1406]: 2019/02/01 15:35:24 socat[1406] N starting data transfer loop with FDs [5,5] and [7,7]
+
 #And the relevant my zigbee2mqtt config
 sudo nano  /opt/zigbee2mqttdev/data/configuration.yaml
  
