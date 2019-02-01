@@ -105,7 +105,9 @@ serial:
   port: /opt/zigbee2mqttdev/vusb/zigbee_cc2530
 advanced:
   rtscts: false
- 
+# Restart zigbee2mqttdev
+sudo systemctl restart zigbee2mqttdev.service && sudo journalctl -f -u zigbee2mqttdev.service
+
 #source https://community.home-assistant.io/t/rpi-as-z-wave-zigbee-over-ip-server-for-hass/23006/45
 #source https://hub.docker.com/r/forepe/zigbee2mqtt-socat
 #source https://github.com/Koenkk/zigbee2mqtt/issues/442
