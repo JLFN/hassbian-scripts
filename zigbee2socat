@@ -47,10 +47,10 @@ WantedBy=multi-user.target
  
 # On zigbee2mqtt server side
 #Make dir
-sudo mkdir /dev/vusb
+sudo mkdir /opt/zigbee2mqttdev/vusb/
 
 # Give Pi user owner rights to /dev/vusb
-sudo chown -R pi:pi /dev/vusb
+sudo chown -R pi:pi /opt/zigbee2mqttdev/vusb/
 
 # Try it first 
 socat -d -d pty,raw,echo=0,link=/opt/zigbee2mqttdev/vusb/zigbee_cc2530 tcp-connect:127.0.0.1:1775
@@ -102,7 +102,7 @@ sudo journalctl -u socat-vusb.service -f
 sudo nano  /opt/zigbee2mqttdev/data/configuration.yaml
  
 serial:
-  port: /dev/vusb/zigbee
+  port: /opt/zigbee2mqttdev/vusb/zigbee_cc2530
 advanced:
   rtscts: false
  
