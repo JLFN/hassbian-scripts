@@ -63,15 +63,15 @@ sudo nano /etc/systemd/system/socat-vusb.service
 [Unit]
 Description=socat-vusb
 After=network-online.target
- 
+
 [Service]
 User=pi
-ExecStart=/usr/bin/socat /opt/zigbee2mqtt/vusb/zigbee_cc2530,b115200,rawer,echo=0 tcp:192.168.1.175:1775,reuseaddr,su=nobody
+ExecStart=/usr/bin/socat -d -d pty,raw,b115200,echo=0,link=/opt/zigbee2mqttdev/vusb/zigbee_cc2530 tcp:127.0.0.1:1775,reuseaddr
 Restart=always
 RestartSec=10
- 
+
 [Install]
-WantedBy=multi-user.target
+WantedBy=multi-user.targett
 #Save the file and exit.
  
 # Update systemd
