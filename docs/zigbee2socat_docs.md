@@ -1,6 +1,6 @@
-#Server Side
+## Server Side
 
-#I’m running raspbian on a RPi. I use a dedicated user named pi which is added to group dialout to allow access to the device (or you can use root).
+# I’m running raspbian on a RPi. I use a dedicated user named pi which is added to group dialout to allow access to the device (or you can use root).
 ## Device can also be connect to with an  3.3v usb TTL or direct to Raspberry Pi TX,RX,3V3,GND. Do not connect to 5V it will destory the  cc2530
 cc2530 = P02 -> Raspberry Pi = TX
 
@@ -32,8 +32,8 @@ StartLimitBurst=0
 WantedBy=multi-user.target
 ```
 # On zigbee2mqtt server side
-# Create a systemctl configuration file for socat-vusb
-# I’m also running it pi because its on the group "dialout" otherwise you will have a permission issue on the device.
+Create a systemctl configuration file for socat-vusb
+I’m also running it pi because its on the group "dialout" otherwise you will have a permission issue on the device.
 ```bash
 sudo nano /etc/systemd/system/socat-vusb.service
 ```
