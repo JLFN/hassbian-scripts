@@ -27,15 +27,6 @@ sudo reboot
 #Try it first
 socat tcp-l:1775,reuseaddr,keepalive,nodelay file:/dev/serial/by-id/usb-Silicon_Labs_CP2102_USB_to_UART_Bridge_Controller_0001-if00-port0,nonblock,raw
 
-# Client Side
-#Make dir
-sudo mkdir /dev/vusb
-
-# Give Pi user owner rights to /dev/vusb
-sudo chown -R pi:pi /dev/vusb
-
-# Try it first 
-sudo socat -d -d pty,raw,echo=0,link=/dev/vusb/zigbee tcp-connect:127.0.0.1:1775
 
 #Create a systemctl configuration file for zigbee-socatvusb
 sudo nano /etc/systemd/system/zigbee-socatvusb.service
@@ -55,6 +46,14 @@ StartLimitBurst=0
 WantedBy=multi-user.target
  
 # On zigbee2mqtt server side
+#Make dir
+sudo mkdir /dev/vusb
+
+# Give Pi user owner rights to /dev/vusb
+sudo chown -R pi:pi /dev/vusb
+
+# Try it first 
+sudo socat -d -d pty,raw,echo=0,link=/dev/vusb/zigbee tcp-connect:127.0.0.1:1775
 # Create a systemctl configuration file for socat-vusb
 # I’m also running it pi because its on the group "dialout" otherwise you will have a permission issue on the device.
 sudo nano /etc/systemd/system/socat-vusb.service
