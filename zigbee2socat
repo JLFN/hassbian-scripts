@@ -53,7 +53,7 @@ sudo mkdir /dev/vusb
 sudo chown -R pi:pi /dev/vusb
 
 # Try it first 
-sudo socat -d -d pty,raw,echo=0,link=/dev/vusb/zigbee tcp-connect:127.0.0.1:1775
+socat -d -d pty,raw,echo=0,link=/dev/vusb/zigbee tcp-connect:127.0.0.1:1775
 # Create a systemctl configuration file for socat-vusb
 # I’m also running it pi because its on the group "dialout" otherwise you will have a permission issue on the device.
 sudo nano /etc/systemd/system/socat-vusb.service
