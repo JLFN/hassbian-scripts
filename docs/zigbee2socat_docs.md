@@ -1,11 +1,15 @@
 #Server Side
 
 #I’m running raspbian on a RPi. I use a dedicated user named pi which is added to group dialout to allow access to the device (or you can use root).
-# Device can also be connect to with an  3.3v usb TTL or direct to Raspberry Pi TX,RX,3V3,GND. Do not connect to 5V it will destory the cc2530
-#cc2530 = P02 -> Raspberry Pi = TX
-#cc2530 = P03 -> Raspberry Pi = RX
-#cc2530 = GND -> Raspberry Pi = GND
-#cc2530 = VCC -> Rasberry  Pi = 3.3V
+## Device can also be connect to with an  3.3v usb TTL or direct to Raspberry Pi TX,RX,3V3,GND. Do not connect to 5V it will destory the  cc2530
+cc2530 = P02 -> Raspberry Pi = TX
+
+cc2530 = P03 -> Raspberry Pi = RX
+
+cc2530 = GND -> Raspberry Pi = GND
+
+cc2530 = VCC -> Rasberry  Pi = 3.3V
+
 # Manual test it
 ```bash
 sudo socat tcp-l:1775,reuseaddr,keepalive,nodelay file:/dev/serial/by-id/usb-Silicon_Labs_CP2102_USB_to_UART_Bridge_Controller_0001-if00-port0,nonblock,raw
@@ -33,7 +37,7 @@ WantedBy=multi-user.target
 ```bash
 sudo nano /etc/systemd/system/socat-vusb.service
 ```
-#Add the following to this file:
+# Add the following to this file:
 ```bash
 [Unit]
 Description=socat-vusb
@@ -48,9 +52,8 @@ RestartSec=10
 [Install]
 WantedBy=multi-user.target
 ```
-#Save the file and exit.
-
-#Verify that the configuration works:
+# Save the file and exit.
+Verify that the configuration works:
 ```bash
 sudo systemctl start socat-vusb
 ```
@@ -58,7 +61,7 @@ sudo systemctl start socat-vusb
 ```bash
 sudo systemctl --system daemon-reload
  ```
-#Verify that the configuration works:
+# Verify that the configuration works:
 ```bash
 sudo systemctl start socat-vusb.service
 ```
@@ -66,11 +69,11 @@ sudo systemctl start socat-vusb.service
 ```bash
 systemctl status socat-vusb.service
 ```
-#Now that everything works, we want systemctl to start socat-vusb automatically on boot, this can be done by executing:
+# Now that everything works, we want systemctl to start socat-vusb automatically on boot, this can be done by executing:
 ```bash
 sudo systemctl enable socat-vusb.service
 ```
-#Some tips that can be handy later:
+# Some tips that can be handy later:
 
 # Stopping socat-vusb
 ```bash
@@ -86,7 +89,7 @@ sudo journalctl -u socat-vusb.service -f
 ```
 
 
-#And the relevant my zigbee2mqtt config
+# And the relevant my zigbee2mqtt config
 ```bash
 sudo nano \opt\zigbee2mqtt\data\configuration.yaml
 ```
@@ -96,7 +99,7 @@ serial:
 advanced:
   rtscts: false
 ```
-#source 
+# source 
 https://community.home-assistant.io/t/rpi-as-z-wave-zigbee-over-ip-server-for-hass/23006/45
 https://hub.docker.com/r/forepe/zigbee2mqtt-socat
 https://github.com/Koenkk/zigbee2mqtt/issues/442
