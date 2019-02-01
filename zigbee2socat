@@ -44,7 +44,8 @@ StartLimitBurst=0
  
 [Install]
 WantedBy=multi-user.target
- 
+________________________________________________________________________________________________________________________________________
+#Skip the instructions about if you planing to use esp8266 with cc2530
 # On zigbee2mqtt server side
 #Make dir
 sudo mkdir /opt/zigbee2mqttdev/vusb/
