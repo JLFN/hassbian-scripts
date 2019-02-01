@@ -59,7 +59,7 @@ After=network-online.target
  
 [Service]
 User=pi
-ExecStart=/usr/bin/socat /dev/zigbee,b115200,rawer,echo=0 tcp:192.168.1.175:1775,reuseaddr,su=nobody
+ExecStart=/usr/bin/socat /dev/vusb/zigbee,b115200,rawer,echo=0 tcp:192.168.1.175:1775,reuseaddr,su=nobody
 Restart=always
 RestartSec=10
  
@@ -95,7 +95,7 @@ sudo journalctl -u socat-vusb.service -f
 sudo nano  /opt/zigbee2mqttdev/data/configuration.yaml
  
 serial:
-  port: /dev/zigbee
+  port: /dev/vusb/zigbee
 advanced:
   rtscts: false
  
