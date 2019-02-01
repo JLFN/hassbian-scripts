@@ -24,7 +24,10 @@ sudo systemctl disable bluetooth.service
 #Reboot is needed
 sudo reboot
 
-#Server Side
+#Try it first
+socat tcp-l:1775,reuseaddr,keepalive,nodelay file:/dev/serial/by-id/usb-Silicon_Labs_CP2102_USB_to_UART_Bridge_Controller_0001-if00-port0,nonblock,raw
+
+# Client Side
 #Make dir
 sudo mkdir /dev/vusb
 
@@ -33,9 +36,6 @@ sudo chown -R pi:pi /dev/vusb
 
 # Try it first 
 sudo socat -d -d pty,raw,echo=0,link=/dev/vusb/zigbee tcp-connect:127.0.0.1:1775
-
-#dont use
-sudo socat tcp-l:1775,reuseaddr,keepalive,nodelay file:/dev/serial/by-id/usb-Silicon_Labs_CP2102_USB_to_UART_Bridge_Controller_0001-if00-port0,nonblock,raw
 
 #Create a systemctl configuration file for zigbee-socatvusb
 sudo nano /etc/systemd/system/zigbee-socatvusb.service
