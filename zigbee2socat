@@ -66,7 +66,7 @@ After=network-online.target
 
 [Service]
 User=pi
-ExecStart=/usr/bin/socat -d -d pty,raw,b115200,echo=0,link=/opt/zigbee2mqttdev/vusb/zigbee_cc2530 tcp:127.0.0.1:1775,reuseaddr
+ExecStart=/usr/bin/socat -d -d pty,raw,echo=0,link=/opt/zigbee2mqttdev/vusb/zigbee_cc2530 tcp:127.0.0.1:1775,reuseaddr
 Restart=always
 RestartSec=10
 
