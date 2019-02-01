@@ -1,3 +1,4 @@
+```
 Esp8266 flashing
 Press the Flashmode button when connection to the computer
 
@@ -29,3 +30,4 @@ Then its complete the device will get devicename ESP-Easy-0 check your router fo
 You can also try to use ser2net on Linux then use that port.
 https://www.letscontrolit.com/wiki/index.php/Ser2Net
 Mount with socat
+```
