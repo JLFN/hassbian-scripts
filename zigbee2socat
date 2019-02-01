@@ -1,3 +1,4 @@
+```
 #Server Side
  
 #I’m running raspbian on a RPi. I use a dedicated user named pi which is added to group dialout to allow access to the device (or you can use root).
@@ -46,6 +47,8 @@ StartLimitBurst=0
 WantedBy=multi-user.target
 ________________________________________________________________________________________________________________________________________
 #Skip the instructions about if you planing to use esp8266 with cc2530
+https://github.com/JLFN/hassbian-scripts/blob/dev/esp8266_zigbee.md
+
 # On zigbee2mqtt server side
 #Make dir
 sudo mkdir /opt/zigbee2mqttdev/vusb/
@@ -128,3 +131,4 @@ sudo systemctl restart zigbee2mqttdev.service && sudo journalctl -f -u zigbee2mq
 #source https://hub.docker.com/r/forepe/zigbee2mqtt-socat
 #source https://github.com/Koenkk/zigbee2mqtt/issues/442
 #source https://github.com/Koenkk/zigbee2mqtt/issues/665#issuecomment-445722057
+```
