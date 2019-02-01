@@ -1,7 +1,9 @@
 ## Server Side
 
-# I’m running raspbian on a RPi. I use a dedicated user named pi which is added to group dialout to allow access to the device (or you can use root).
-## Device can also be connect to with an  3.3v usb TTL or direct to Raspberry Pi TX,RX,3V3,GND. Do not connect to 5V it will destory the  cc2530
+I’m running raspbian on a RPi. I use a dedicated user named pi which is added to group dialout to allow access to the device (or you can use root).
+Device can also be connect to with an  3.3v usb TTL or direct to Raspberry Pi TX,RX,3V3,GND. Do not connect to 5V it will destory the  
+
+# cc2530
 cc2530 = P02 -> Raspberry Pi = TX
 
 cc2530 = P03 -> Raspberry Pi = RX
@@ -14,7 +16,7 @@ cc2530 = VCC -> Rasberry  Pi = 3.3V
 ```bash
 sudo socat tcp-l:1775,reuseaddr,keepalive,nodelay file:/dev/serial/by-id/usb-Silicon_Labs_CP2102_USB_to_UART_Bridge_Controller_0001-if00-port0,nonblock,raw
 ```
-#Server Side
+# Server Side
 ```bash
 [Unit]
 Description=zigbee-socatvusb
@@ -99,7 +101,7 @@ serial:
 advanced:
   rtscts: false
 ```
-# source 
+# Sources
 https://community.home-assistant.io/t/rpi-as-z-wave-zigbee-over-ip-server-for-hass/23006/45
 https://hub.docker.com/r/forepe/zigbee2mqtt-socat
 https://github.com/Koenkk/zigbee2mqtt/issues/442
