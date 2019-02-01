@@ -93,7 +93,7 @@ sudo journalctl -u socat-vusb.service -f
 
 # And the relevant my zigbee2mqtt config
 ```bash
-sudo nano \opt\zigbee2mqtt\data\configuration.yaml
+sudo nano /opt/zigbee2mqttdev/data/configuration.yaml
 ```
 ```yaml
 serial:
