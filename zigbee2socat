@@ -25,11 +25,23 @@ sudo systemctl disable bluetooth.service
 #Reboot is needed
 sudo reboot
 
+#Using Raspberry Pi 2 build in Serial gpio
+#To find out where it is pointing you can use the command:
+ls -l /dev
+# Edit configuration.yaml for zigbee2mqtt
+sudo nano  /opt/zigbee2mqttdev/data/configuration.yaml
+ 
+serial:
+  port: /dev/ttyAMA0
+advanced:
+  rtscts: false
+  
+
 #Install socat
 sudo apt-get install socat
 
 #Try it first
-socat tcp-l:1775,reuseaddr,keepalive,nodelay file:/dev/serial/by-id/usb-Silicon_Labs_CP2102_USB_to_UART_Bridge_Controller_0001-if00-port0,nonblock,raw
+socat tcp-l:1775,reuseaddr,keepalive,nodelay file:/dev/ttyAMA0,nonblock,raw
 
 
 #Create a systemctl configuration file for zigbee-socatvusb
@@ -41,7 +53,7 @@ After=network-online.target
 [Service]
 Type=simple
 User=pi
-ExecStart=/usr/bin/socat tcp-l:1775,reuseaddr,keepalive,nodelay file:/dev/serial/by-id/usb-Silicon_Labs_CP2102_USB_to_UART_Bridge_Controller_0001-if00-port0,nonblock,raw
+ExecStart=/usr/bin/socat tcp-l:1775,reuseaddr,keepalive,nodelay file:/dev/ttyAMA0,nonblock,raw
 Restart=always
 StartLimitIntervalSec=0
 StartLimitBurst=0
@@ -137,4 +149,5 @@ sudo systemctl restart zigbee2mqttdev.service && sudo journalctl -f -u zigbee2mq
 #source https://hub.docker.com/r/forepe/zigbee2mqtt-socat
 #source https://github.com/Koenkk/zigbee2mqtt/issues/442
 #source https://github.com/Koenkk/zigbee2mqtt/issues/665#issuecomment-445722057
+#source https://pinout.xyz/pinout/pin8_gpio14#
 ```
