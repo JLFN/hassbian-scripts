@@ -25,6 +25,9 @@ sudo systemctl disable bluetooth.service
 #Reboot is needed
 sudo reboot
 
+#Install socat
+sudo apt-get install socat
+
 #Try it first
 socat tcp-l:1775,reuseaddr,keepalive,nodelay file:/dev/serial/by-id/usb-Silicon_Labs_CP2102_USB_to_UART_Bridge_Controller_0001-if00-port0,nonblock,raw
 
