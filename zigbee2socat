@@ -149,5 +149,6 @@ sudo systemctl restart zigbee2mqttdev.service && sudo journalctl -f -u zigbee2mq
 #source https://hub.docker.com/r/forepe/zigbee2mqtt-socat
 #source https://github.com/Koenkk/zigbee2mqtt/issues/442
 #source https://github.com/Koenkk/zigbee2mqtt/issues/665#issuecomment-445722057
-#source https://pinout.xyz/pinout/pin8_gpio14#
+#source https://pinout.xyz/pinout/pin8_gpio14
+#https://spellfoundry.com/2016/05/29/configuring-gpio-serial-port-raspbian-jessie-including-pi-3/
 ```
