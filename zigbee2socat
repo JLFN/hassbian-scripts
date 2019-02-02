@@ -90,6 +90,9 @@ sudo systemctl start socat-vusb.service
 # Show status
 systemctl status socat-vusb.service
  
+# Restart and check Log
+sudo systemctl restart socat-vusb.service && sudo journalctl -f -u socat-vusb.service
+
 #Now that everything works, we want systemctl to start socat-vusb automatically on boot, this can be done by executing:
  
 sudo systemctl enable socat-vusb.service
