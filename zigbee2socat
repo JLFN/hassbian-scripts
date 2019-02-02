@@ -46,7 +46,7 @@ StartLimitBurst=0
 [Install]
 WantedBy=multi-user.target
 ________________________________________________________________________________________________________________________________________
-#Skip the instructions about if you planing to use esp8266 with cc2530
+#Skip the instructions above if you planing to use esp8266 with cc2530
 https://github.com/JLFN/hassbian-scripts/blob/dev/esp8266_zigbee.md
 
 # On zigbee2mqtt server side
