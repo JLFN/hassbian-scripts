@@ -1,4 +1,14 @@
 ```
+Wiring:
+ESP8266 -- CC2530
+3v3 --> VCC
+GND --> GND
+TX --> P02
+RX --> P03
+GND --> P20
+GND --> P04
+GND --> P05
+
 Esp8266 flashing
 Press the Flashmode button when connection to the computer
 
