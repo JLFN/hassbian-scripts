@@ -3,10 +3,10 @@
  
 #I’m running raspbian on a RPi. I use a dedicated user named pi which is added to group dialout to allow access to the device (or you can use root).
 # Device can also be connect to with an  3.3v usb TTL or direct to Raspberry Pi TX,RX,3V3,GND. Do not connect to 5V it will destory the cc2530
-#cc2530 = P02 -> Raspberry Pi = TX
-#cc2530 = P03 -> Raspberry Pi = RX
-#cc2530 = GND -> Raspberry Pi = GND
-#cc2530 = VCC -> Raspberry  Pi = 3.3V
+#cc2530 = P02 -> Raspberry Pi = TX    = PIN 10 
+#cc2530 = P03 -> Raspberry Pi = RX    = PIN 8
+#cc2530 = GND -> Raspberry Pi = GND   = PIN 14
+#cc2530 = VCC -> Raspberry  Pi = 3.3V = PIN 1
 
 #Running with Raspberry pi TX and RX
 #Disabling on-board Bluetooth for using RX/TX
